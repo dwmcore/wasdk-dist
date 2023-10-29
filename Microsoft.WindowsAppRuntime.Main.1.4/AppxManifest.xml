@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5" xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap uap3 uap5 com mp rescap" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
+  <Identity Name="MicrosoftCorporationII.WinAppRuntime.Main.1.4" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" ProcessorArchitecture="x64" Version="4000.1010.1349.0" />
+  <Properties>
+    <DisplayName>WinAppRuntime.Main.1.4</DisplayName>
+    <PublisherDisplayName>Microsoft Corp.</PublisherDisplayName>
+    <Description>Microsoft Windows App Runtime Main 1.4 (4000.1010.1349.0 x64 )</Description>
+    <Logo>WindowsAppRuntime.png</Logo>
+  </Properties>
+  <Resources>
+    <Resource Language="en-US" />
+  </Resources>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
+    <PackageDependency Name="Microsoft.WindowsAppRuntime.1.4" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" MinVersion="4000.1010.1349.0" />
+  </Dependencies>
+  <Applications>
+    <Application Id="App" Executable="DynamicDependency.DataStore.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements DisplayName="Windows App Runtime Main" Square150x150Logo="WindowsAppRuntime.png" Square44x44Logo="WindowsAppRuntime.png" Description="Windows App Runtime Main package" BackgroundColor="transparent" AppListEntry="none">
+        <uap:DefaultTile Wide310x150Logo="WindowsAppRuntime.png" />
+        <uap:SplashScreen Image="WindowsAppRuntime.png" uap5:Optional="true" />
+      </uap:VisualElements>
+      <Extensions>
+        <com:Extension Category="windows.comServer">
+          <com:ComServer>
+            <com:ExeServer Executable="DynamicDependency.DataStore.exe" DisplayName="Windows App Runtime DynamicDependency DataStore">
+              <com:Class Id="D1AD16C7-EC59-4765-BF95-9A243EB00507" DisplayName="Windows App Runtime DynamicDependency DataStore" />
+            </com:ExeServer>
+          </com:ComServer>
+        </com:Extension>
+        <com:Extension Category="windows.comInterface">
+          <com:ComInterface>
+            <com:ProxyStub Id="DDEB4D6A-E146-476d-B729-0BFB1A29A86E" DisplayName="DynamicDependency.DataStore ProxyStub" Path="DynamicDependency.DataStore.ProxyStub.dll" />
+            <com:Interface Id="DDEB4D6A-E146-476d-B729-0BFB1A29A86E" ProxyStubClsid="DDEB4D6A-E146-476d-B729-0BFB1A29A86E" />
+            <!-- IID_IDynamicDependencyDataStore -->
+          </com:ComInterface>
+        </com:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+  <mp:PhoneIdentity PhoneProductId="5a4f53df-b5da-46e4-b7e0-02d007e3f3aa" PhonePublisherId="d949d1ab-24a8-4463-9586-acee62f6de38" />
+</Package>

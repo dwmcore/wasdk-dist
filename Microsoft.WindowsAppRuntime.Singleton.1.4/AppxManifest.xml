@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5" xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" IgnorableNamespaces="uap uap3 uap5 com rescap">
+  <Identity Name="MicrosoftCorporationII.WinAppRuntime.Singleton" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" ProcessorArchitecture="x64" Version="4000.1010.1349.0" />
+  <Properties>
+    <DisplayName>WinAppRuntime.Singleton</DisplayName>
+    <PublisherDisplayName>Microsoft Corp.</PublisherDisplayName>
+    <Description>Microsoft Windows App Runtime Singleton 1.4 (4000.1010.1349.0 x64 )</Description>
+    <Logo>WindowsAppRuntime.png</Logo>
+  </Properties>
+  <Resources>
+    <Resource Language="en-US" />
+  </Resources>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
+    <PackageDependency Name="Microsoft.WindowsAppRuntime.1.4" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" MinVersion="4000.1010.1349.0" />
+  </Dependencies>
+  <Applications>
+    <Application Id="PushNotifications.LongRunningTask" Executable="PushNotificationsLongRunningTask.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements DisplayName="Microsoft Windows App Runtime Singleton" Square150x150Logo="WindowsAppRuntime.png" Square44x44Logo="WindowsAppRuntime.png" Description="Microsoft Windows App Runtime Singleton package" BackgroundColor="transparent" AppListEntry="none">
+        <uap:DefaultTile Wide310x150Logo="WindowsAppRuntime.png" />
+        <uap:SplashScreen Image="WindowsAppRuntime.png" uap5:Optional="true" />
+      </uap:VisualElements>
+      <Extensions>
+        <com:Extension Category="windows.comServer">
+          <com:ComServer>
+            <com:ExeServer Executable="PushNotificationsLongRunningTask.exe" DisplayName="Microsoft Windows App Runtime Push Notifications Task">
+              <com:Class Id="E739C755-0D09-48DF-A468-A5DF0B5422DC" DisplayName="Microsoft Windows App Runtime Push Notifications Task" />
+            </com:ExeServer>
+          </com:ComServer>
+        </com:Extension>
+        <com:Extension Category="windows.comInterface">
+          <com:ComInterface>
+            <com:ProxyStub Id="60FC21B2-B396-4D49-94F0-7555869FB93C" DisplayName="PushNotificationsLongRunningTask ProxyStub" Path="PushNotificationsLongRunningTask.ProxyStub.dll" />
+            <com:Interface Id="60FC21B2-B396-4D49-94F0-7555869FB93C" ProxyStubClsid="60FC21B2-B396-4D49-94F0-7555869FB93C" />
+            <!-- IID_IWpnLrpPlatform -->
+          </com:ComInterface>
+        </com:Extension>
+        <com:Extension Category="windows.comInterface">
+          <com:ComInterface>
+            <com:ProxyStub Id="25604D55-9B17-426F-9D67-2B11B3A65598" DisplayName="PushNotificationsLongRunningTask ProxyStub" Path="PushNotificationsLongRunningTask.ProxyStub.dll" />
+            <com:Interface Id="25604D55-9B17-426F-9D67-2B11B3A65598" ProxyStubClsid="25604D55-9B17-426F-9D67-2B11B3A65598" />
+            <!-- IID_IWpnForegroundSink -->
+          </com:ComInterface>
+        </com:Extension>
+        <com:Extension Category="windows.comInterface">
+          <com:ComInterface>
+            <com:ProxyStub Id="559B4205-F810-4947-B02B-3EA9A311C6AD" DisplayName="PushNotificationsLongRunningTask ProxyStub" Path="PushNotificationsLongRunningTask.ProxyStub.dll" />
+            <com:Interface Id="559B4205-F810-4947-B02B-3EA9A311C6AD" ProxyStubClsid="559B4205-F810-4947-B02B-3EA9A311C6AD" />
+            <!-- IID_IWpnForegroundSink2 -->
+          </com:ComInterface>
+        </com:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+  <mp:PhoneIdentity PhoneProductId="4f77bc03-b15c-4268-943a-8257d601c8d8" PhonePublisherId="d949d1ab-24a8-4463-9586-acee62f6de38" />
+</Package>
